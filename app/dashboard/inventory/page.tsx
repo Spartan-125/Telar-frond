@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import {
   Dialog,
   DialogContent,
@@ -205,38 +206,53 @@ export default function InventoryPage() {
               </DialogDescription>
             </DialogHeader>
             <div className="space-y-4 py-4">
-              <Input
-                label="Product Name"
-                placeholder="e.g., Summer Floral Dress"
-                value={newItem.name}
-                onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
-              />
-              <Input
-                label="SKU"
-                placeholder="e.g., DRS-001"
-                value={newItem.sku}
-                onChange={(e) => setNewItem({ ...newItem, sku: e.target.value })}
-              />
-              <Input
-                label="Category"
-                placeholder="e.g., Dresses"
-                value={newItem.category}
-                onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
-              />
-              <Input
-                label="Quantity"
-                type="number"
-                placeholder="0"
-                value={newItem.quantity}
-                onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })}
-              />
-              <Input
-                label="Price"
-                type="number"
-                placeholder="0.00"
-                value={newItem.price}
-                onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
-              />
+              <div className="space-y-2">
+                <Label htmlFor="name">Product Name</Label>
+                <Input
+                  id="name"
+                  placeholder="e.g., Summer Floral Dress"
+                  value={newItem.name}
+                  onChange={(e) => setNewItem({ ...newItem, name: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="sku">SKU</Label>
+                <Input
+                  id="sku"
+                  placeholder="e.g., DRS-001"
+                  value={newItem.sku}
+                  onChange={(e) => setNewItem({ ...newItem, sku: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="category">Category</Label>
+                <Input
+                  id="category"
+                  placeholder="e.g., Dresses"
+                  value={newItem.category}
+                  onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="quantity">Quantity</Label>
+                <Input
+                  id="quantity"
+                  type="number"
+                  placeholder="0"
+                  value={newItem.quantity}
+                  onChange={(e) => setNewItem({ ...newItem, quantity: e.target.value })}
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="price">Price</Label>
+                <Input
+                  id="price"
+                  type="number"
+                  placeholder="0.00"
+                  value={newItem.price}
+                  onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
+                />
+              </div>
             </div>
             <DialogFooter>
               <Button variant="outline" onClick={() => setIsAddDialogOpen(false)}>

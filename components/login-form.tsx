@@ -2,8 +2,8 @@
 
 import { useState, type FormEvent } from "react"
 import { motion } from "framer-motion"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Input } from "@/components/input"
+import { Button } from "@/components/button"
 import { validateEmail, validatePassword, loginUser } from "@/lib/auth"
 import { useStore } from "@/lib/store"
 import { useRouter } from "next/navigation"

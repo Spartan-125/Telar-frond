@@ -50,9 +50,6 @@ function Button({
     isLoading?: boolean
   }) {
   const Comp = asChild ? Slot : "button"
-  
-  // Eliminamos isLoading de las props que se pasan al DOM
-  const { isLoading: _, ...restProps } = props
 
   const contents = (
     <>
@@ -78,7 +75,7 @@ function Button({
           />
         </svg>
       )}
-      {restProps.children}
+      {props.children}
     </>
   )
 
@@ -86,10 +83,10 @@ function Button({
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
-      {...restProps}
-      disabled={isLoading || restProps.disabled}
+      {...props}
+      disabled={isLoading || props.disabled}
     >
-      {asChild ? React.Children.only(restProps.children) : contents}
+      {asChild ? React.Children.only(props.children) : contents}
     </Comp>
   )
 }

@@ -12,13 +12,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({ error, label, c
   return (
     <div className="w-full">
       {label && <label className="block text-sm font-medium text-muted-foreground mb-2">{label}</label>}
-      <motion.input
+      <input
         ref={ref}
-        className={`w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all ${
+        className={`w-full px-4 py-3 bg-input border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all focus:scale-[1.01] ${
           error ? "border-destructive focus:ring-destructive" : ""
         } ${className}`}
-        whileFocus={{ scale: 1.01 }}
-        transition={{ duration: 0.2 }}
         {...props}
       />
       {error && (

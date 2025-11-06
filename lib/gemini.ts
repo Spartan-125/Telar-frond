@@ -39,9 +39,9 @@ export async function geminiGenerate(prompt: string): Promise<GeminiActionRespon
       const response = JSON.parse(responseText) as GeminiActionResponse
 
       // Si es una acción que requiere datos
-      if (response.action === 'chart' || response.action === 'report') {
+      if (response.action === 'grafica' || response.action === 'reporte') {
         const data = await dataService.generateReportData(
-          response.action === 'chart' ? response.data.metric : response.type
+          response.action === 'grafica' ? response.data.metric : response.type
         )
         
         // Generar un análisis más detallado con los datos

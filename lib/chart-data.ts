@@ -79,7 +79,7 @@ export async function generateChartData(request: ChartRequest): Promise<ChartDat
       label: getMetricLabel(request.metric),
       data: values,
       backgroundColor: DEFAULT_COLORS.slice(0, values.length),
-      borderColor: request.type === 'line' ? DEFAULT_COLORS[0] : undefined,
+      borderColor: request.type === 'line' ? [DEFAULT_COLORS[0]] : undefined,
       borderWidth: 1
     }]
   }

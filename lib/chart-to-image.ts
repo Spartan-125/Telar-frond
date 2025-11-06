@@ -21,17 +21,19 @@ export function addImageToWorkbook(workbook: WorkBook, sheetName: string, imageD
   if (sheet && imageData) {
     const imageId = workbook.SheetNames.length;
     const imageType = 'image/png';
-    
-    // Add the image to the workbook
-    if (!workbook.Images) workbook.Images = {};
-    workbook.Images[imageId] = {
+
+    // Add the image to the workbook (extending the WorkBook type)
+    const wb = workbook as any;
+    if (!wb.Images) wb.Images = {};
+    wb.Images[imageId] = {
       data: imageData,
       type: imageType,
     };
 
     // Add the image reference to the sheet
-    sheet['!images'] = sheet['!images'] || [];
-    sheet['!images'].push({
+    const ws = sheet as any;
+    ws['!images'] = ws['!images'] || [];
+    ws['!images'].push({
       name: `image${imageId}`,
       type: imageType,
       position: position,
